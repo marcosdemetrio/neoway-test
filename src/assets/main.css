@@ -8,3 +8,9 @@
 h1 {
   line-height: normal;
 }
+
+@media (max-width: 1300px) {
+  main {
+    padding: 0 2rem;
+  }
+}

@@ -34,8 +34,6 @@ export default {
   background-color: var(--color-background);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   padding: 1rem;
-  margin: 0 0.5rem 1rem;
-  flex: 1 1 45%;
   cursor: pointer;
   transition:
     background-color 0.3s,

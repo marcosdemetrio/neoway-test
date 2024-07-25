@@ -22,6 +22,7 @@ export default {
   text-decoration: none;
   margin: 0 1rem;
   font-size: 1rem;
+  font-weight: 600;
 }
 
 .navbar-item:hover {

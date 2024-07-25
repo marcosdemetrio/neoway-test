@@ -5,12 +5,13 @@ export default {
 </script>
 
 <template>
-  <p class="no-articles">No articles found.</p>
+  <p class="no-articles">
+    <slot></slot>
+  </p>
 </template>
 
 <style scoped>
 .no-articles {
-  width: 100%;
   text-align: center;
   font-size: 2rem;
   color: var(--color-text);

@@ -38,9 +38,7 @@ export default {
 
 <style scoped>
 .article-detail {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 1rem;
+  padding: 3rem 1rem 1rem;
 }
 
 .article-header {

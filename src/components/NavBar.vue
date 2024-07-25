@@ -34,13 +34,22 @@ export default {
 
 <style scoped>
 .navbar {
-  height: 6rem;
-  background-color: var(--color-navbar);
+  min-height: 100px;
   padding: 1rem;
   margin-bottom: 1rem;
-  color: var(--color-background);
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
+  border-bottom: 1px solid var(--color-border);
+}
+@media (max-width: 473px) {
+  .navbar {
+    justify-content: center;
+    min-height: 140px;
+  }
+  .navbar > nav {
+    margin-bottom: 1rem;
+  }
 }
 </style>

@@ -9,7 +9,7 @@ export default {
 </script>
 
 <template>
-  <search class="filter-container">
+  <div>
     <input
       class="filter"
       type="text"
@@ -17,17 +17,11 @@ export default {
       @input="onInput"
       aria-label="Search articles"
     />
-  </search>
+  </div>
 </template>
 
 <style scoped>
-.filter-container {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-}
-
 .filter {
-  width: 400px;
   padding: 20px;
   font-size: 20px;
   border: 1px solid var(--color-border);
