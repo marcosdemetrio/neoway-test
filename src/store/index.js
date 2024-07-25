@@ -1,6 +1,10 @@
 import { createStore } from 'vuex'
 import { fetchArticles } from '@/services/api'
 
+function removeAccents(string) {
+  return string.normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+}
+
 export default createStore({
   state: {
     articles: [],
@@ -34,12 +38,12 @@ export default createStore({
       }
     },
     filterArticles({ commit, state }, searchTerm) {
-      const search = searchTerm.trim().toLowerCase()
+      const search = removeAccents(searchTerm.trim().toLowerCase())
 
       const filteredArticles = state.articles.filter((article) => {
-        const title = article.title?.toLowerCase() || ''
-        const description = article.description?.toLowerCase() || ''
-        const content = article.content?.toLowerCase() || ''
+        const title = removeAccents(article.title?.toLowerCase() || '')
+        const description = removeAccents(article.description?.toLowerCase() || '')
+        const content = removeAccents(article.content?.toLowerCase() || '')
 
         return title.includes(search) || description.includes(search) || content.includes(search)
       })
