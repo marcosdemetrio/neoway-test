@@ -9,12 +9,14 @@ export default createStore({
   state: {
     articles: [],
     filteredArticles: [],
-    favoritedArticles: []
+    favoritedArticles: [],
+    error: null
   },
   mutations: {
     SET_ARTICLES(state, articles) {
       state.articles = articles
       state.filteredArticles = articles
+      state.error = null
     },
     SET_FILTERED_ARTICLES(state, filteredArticles) {
       state.filteredArticles = filteredArticles
@@ -26,6 +28,9 @@ export default createStore({
       state.favoritedArticles = state.favoritedArticles.filter(
         (article) => article.url !== articleUrl
       )
+    },
+    SET_ERROR(state, error) {
+      state.error = error
     }
   },
   actions: {
@@ -35,6 +40,7 @@ export default createStore({
         commit('SET_ARTICLES', articles)
       } catch (error) {
         console.error('Failed to fetch articles:', error)
+        commit('SET_ERROR', 'Failed to fetch articles, please try again later')
       }
     },
     filterArticles({ commit, state }, searchTerm) {
@@ -59,6 +65,7 @@ export default createStore({
   },
   getters: {
     articles: (state) => state.filteredArticles,
-    favoritedArticles: (state) => state.favoritedArticles
+    favoritedArticles: (state) => state.favoritedArticles,
+    error: (state) => state.error
   }
 })

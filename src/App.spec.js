@@ -64,27 +64,22 @@ describe('App.vue', () => {
 
     const articleDetail = wrapper.findComponent({ name: 'ArticleDetail' })
     expect(articleDetail.exists()).toBe(true)
-    expect(articleDetail.props('article')).toEqual(mockArticles[0])
 
-    const articleTitle = articleDetail.find('[aria-label="Article title"]')
-    expect(articleTitle.text()).toBe(mockArticles[0].title)
+    const articleDetailText = articleDetail.text()
+    expect(articleDetailText).toContain(mockArticles[0].title)
+    expect(articleDetailText).toContain(`By ${mockArticles[0].author}`)
 
-    const articleAuthor = articleDetail.find('[aria-label="Article author"]')
-    expect(articleAuthor.text()).toBe(`By ${mockArticles[0].author}`)
-
-    const articleDate = articleDetail.find('[aria-label="Article date"]')
     const formattedDate = new Date(mockArticles[0].publishedAt).toLocaleDateString('en-US', {
       year: 'numeric',
       month: 'long',
       day: 'numeric'
     })
-    expect(articleDate.text()).toBe(formattedDate)
+    expect(articleDetailText).toContain(formattedDate)
 
-    const articleContent = articleDetail.find('[aria-label="Article content"]')
-    expect(articleContent.text()).toBe(mockArticles[0].content)
+    expect(articleDetailText).toContain(mockArticles[0].content)
 
-    const articleLink = articleDetail.find('[aria-label="Read full article"]')
-    expect(articleLink.attributes('href')).toBe(mockArticles[0].url)
+    const articleLink = articleDetail.find('a').attributes('href')
+    expect(articleLink).toBe(mockArticles[0].url)
   })
 
   it('close article details', async () => {

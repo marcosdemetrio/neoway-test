@@ -4,16 +4,18 @@ import ArticleModal from '../components/ArticleModal.vue'
 import NoArticles from '../components/NoArticles.vue'
 import LoadingIndicator from '../components/LoadingIndicator.vue'
 import { mapGetters, mapActions } from 'vuex'
+import ErrorMessage from '../components/ErrorMessage.vue'
 
 export default {
   components: {
     ArticleItem,
     ArticleModal,
     NoArticles,
-    LoadingIndicator
+    LoadingIndicator,
+    ErrorMessage
   },
   computed: {
-    ...mapGetters(['articles']),
+    ...mapGetters(['articles', 'error']),
     filteredArticles() {
       return this.articles
     }
@@ -60,8 +62,9 @@ export default {
       @open-detail="openArticleDetail"
     />
   </div>
-  <LoadingIndicator v-if="loading & !articles.length" />
+  <LoadingIndicator v-if="loading && !articles.length" />
   <ArticleModal v-if="showModal" :article="selectedArticle" @close="showModal = false" />
+  <ErrorMessage v-if="error" :message="error" />
 </template>
 
 <style scoped>
