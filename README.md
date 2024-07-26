@@ -45,3 +45,21 @@ npm run test:unit
 ```sh
 npm run lint
 ```
+
+## Run Project with Docker
+
+To run the project with Docker, follow these steps:
+
+1. **Build the Docker image:**
+
+   ```sh
+   docker build -t neoway-test .
+   ```
+
+2. **Run the Docker container:**
+
+   ```sh
+   docker run -it -p 8080:80 --rm --name neoway-test-container neoway-test
+   ```
+
+You should be able to access the application at [http://localhost:8080](http://localhost:8080).
