@@ -43,13 +43,11 @@ export default {
   flex-wrap: wrap;
   border-bottom: 1px solid var(--color-border);
 }
+
 @media (max-width: 473px) {
   .navbar {
     justify-content: center;
     min-height: 140px;
-  }
-  .navbar > nav {
-    margin-bottom: 1rem;
   }
 }
 </style>

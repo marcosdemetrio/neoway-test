@@ -19,19 +19,25 @@ export default {
 <template>
   <article class="article-detail">
     <section class="article-header">
-      <h1>{{ article.title }}</h1>
-      <p class="article-author">By {{ article.author }}</p>
-      <p class="article-date">{{ formattedDate }}</p>
+      <h1 class="aticle-title" aria-label="Article title">{{ article.title }}</h1>
+      <p class="article-author" aria-label="Article author">By {{ article.author }}</p>
+      <p class="article-date" aria-label="Article date">{{ formattedDate }}</p>
     </section>
-    <section class="article-image" v-if="article.urlToImage">
+    <section class="article-image" v-if="article.urlToImage" aria-label="Article image">
       <div class="image-placeholder"></div>
       <img :src="article.urlToImage" :alt="article.title" />
     </section>
     <section class="article-content">
-      <p>{{ article.content }}</p>
+      <p aria-label="Article content">{{ article.content }}</p>
     </section>
     <section class="article-links">
-      <a :href="article.url" target="_blank" rel="noopener noreferrer">Read full article</a>
+      <a
+        :href="article.url"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Read full article"
+        >Read full article</a
+      >
     </section>
   </article>
 </template>

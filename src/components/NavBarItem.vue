@@ -11,7 +11,7 @@ export default {
 </script>
 
 <template>
-  <router-link :to="to" class="navbar-item">
+  <router-link :to="to" class="navbar-item" exact-active-class="active">
     <slot></slot>
   </router-link>
 </template>
@@ -26,6 +26,10 @@ export default {
 }
 
 .navbar-item:hover {
+  text-decoration: underline;
+}
+
+.active {
   text-decoration: underline;
 }
 </style>

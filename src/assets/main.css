@@ -5,12 +5,16 @@
   margin: 0 auto;
 }
 
+main {
+  padding-bottom: 2rem;
+}
+
 h1 {
   line-height: normal;
 }
 
 @media (max-width: 1300px) {
   main {
-    padding: 0 2rem;
+    padding: 0 2rem 2rem;
   }
 }

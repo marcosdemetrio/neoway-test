@@ -13,9 +13,9 @@ export default {
     <input
       class="filter"
       type="text"
-      placeholder="Search"
+      placeholder="Filter"
       @input="onInput"
-      aria-label="Search articles"
+      aria-label="Filter articles"
     />
   </div>
 </template>

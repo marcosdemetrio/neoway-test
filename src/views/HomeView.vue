@@ -56,6 +56,7 @@ export default {
       v-for="article in filteredArticles"
       :key="article.url"
       :article="article"
+      :aria-label="article.title"
       @open-detail="openArticleDetail"
     />
   </div>
