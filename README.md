@@ -13,7 +13,7 @@ To use the News API, you need to create an API key. Follow these steps:
 5. Add the API key to your `.env` file:
 
    ```plaintext
-   API_KEY=your-api-key-here
+   VITE_API_KEY=your-api-key-here
    ```
 
 ## Project Setup
